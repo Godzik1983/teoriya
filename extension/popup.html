@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Counter</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="app glass">
+      <header class="topbar">
+        <h1>Text Counter</h1>
+        <span class="badge">MV3</span>
+      </header>
+
+      <div class="limits">
+        <label>
+          Лимит символов
+          <input id="charLimit" type="number" min="0" placeholder="Без лимита" />
+        </label>
+        <label>
+          Лимит слов
+          <input id="wordLimit" type="number" min="0" placeholder="Без лимита" />
+        </label>
+      </div>
+
+      <div class="actions">
+        <button id="pasteBtn" type="button">Вставить</button>
+        <button id="clearBtn" type="button" class="ghost">Очистить</button>
+      </div>
+
+      <div id="editor" class="editor" contenteditable="true" spellcheck="false" data-placeholder="Вставьте или введите текст..."></div>
+
+      <section class="stats">
+        <p>Символов: <strong id="charsCount">0</strong></p>
+        <p>Без пробелов: <strong id="charsNoSpaceCount">0</strong></p>
+        <p>Слов: <strong id="wordsCount">0</strong></p>
+      </section>
+
+      <section class="social-scale" aria-label="Шкала лимитов соцсетей">
+        <div class="social-head">
+          <h2>Лимиты соцсетей</h2>
+          <span id="socialCurrent">0</span>
+        </div>
+        <div class="social-icons">
+          <div class="social-item" style="--pos: 34.09%"><span class="social-icon">IG</span><span class="social-limit">150</span></div>
+          <div class="social-item" style="--pos: 56.82%"><span class="social-icon">f</span><span class="social-limit">250</span></div>
+          <div class="social-item" style="--pos: 63.64%"><span class="social-icon">X</span><span class="social-limit">280</span></div>
+          <div class="social-item" style="--pos: 68.18%"><span class="social-icon">in</span><span class="social-limit">300</span></div>
+        </div>
+        <div class="bar-wrap">
+          <div id="socialTrack" class="social-track"></div>
+          <div id="socialProgress" class="social-progress"></div>
+          <div id="socialThumb" class="social-thumb"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
