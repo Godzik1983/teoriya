@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Text Counter & Limits",
+  "description": "Counts characters, non-space characters, and words. Highlights text exceeding limits.",
+  "version": "1.1.0",
+  "permissions": [
+    "clipboardRead",
+    "contextMenus",
+    "sidePanel",
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Text Counter",
+    "default_popup": "popup.html"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  }
+}
