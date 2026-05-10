@@ -33,3 +33,8 @@ input { padding: 7px 8px; border: 1px solid var(--border); border-radius: 6px; f
 .social-track { position: absolute; inset: 3px 0 auto; height: 6px; border-radius: 999px; background: var(--bar-bg); }
 .social-progress { position: absolute; inset: 3px auto auto 0; width: 0; height: 6px; border-radius: 999px; background: var(--accent); transition: width 0.15s linear; }
 .social-thumb { position: absolute; top: 0; left: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); transform: translateX(-50%); transition: left 0.15s linear; }
+
+
+.sidepanel .app {
+  width: 100%;
+}

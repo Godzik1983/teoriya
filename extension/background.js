@@ -9,10 +9,13 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 });
 
-chrome.contextMenus.onClicked.addListener(async (info) => {
+chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   if (info.menuItemId !== MENU_ID) return;
+
   const selectionText = info.selectionText || '';
   await chrome.storage.local.set({ [STORAGE_KEY]: selectionText });
-  await chrome.action.setBadgeText({ text: selectionText ? 'NEW' : '' });
-  await chrome.action.setBadgeBackgroundColor({ color: '#0f9d58' });
+
+  if (tab?.windowId) {
+    await chrome.sidePanel.open({ windowId: tab.windowId });
+  }
 });
