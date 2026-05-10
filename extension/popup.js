@@ -103,13 +103,23 @@ clearBtn.addEventListener('click', () => {
 });
 
 pasteBtn.addEventListener('click', async () => {
+  let clipText = '';
+
   try {
-    const clipText = await navigator.clipboard.readText();
-    if (clipText) {
-      editor.textContent = clipText;
-      render();
-    }
+    clipText = await navigator.clipboard.readText();
   } catch (error) {
-    console.warn('Clipboard not available:', error);
+    try {
+      const permission = await navigator.permissions.query({ name: 'clipboard-read' });
+      if (permission.state === 'granted' || permission.state === 'prompt') {
+        clipText = await navigator.clipboard.readText();
+      }
+    } catch (nestedError) {
+      console.warn('Clipboard read failed:', nestedError);
+    }
+  }
+
+  if (clipText) {
+    editor.textContent = clipText;
+    render();
   }
 });

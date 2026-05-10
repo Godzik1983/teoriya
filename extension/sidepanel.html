@@ -15,31 +15,31 @@
 
       <div class="limits">
         <label>
-          Лимит символов
-          <input id="charLimit" type="number" min="0" placeholder="Без лимита" />
+          Character limit
+          <input id="charLimit" type="number" min="0" placeholder="No limit" />
         </label>
         <label>
-          Лимит слов
-          <input id="wordLimit" type="number" min="0" placeholder="Без лимита" />
+          Word limit
+          <input id="wordLimit" type="number" min="0" placeholder="No limit" />
         </label>
       </div>
 
       <div class="actions">
-        <button id="pasteBtn" type="button">Вставить</button>
-        <button id="clearBtn" type="button" class="ghost">Очистить</button>
+        <button id="pasteBtn" type="button">Paste</button>
+        <button id="clearBtn" type="button" class="ghost">Clear</button>
       </div>
 
-      <div id="editor" class="editor" contenteditable="true" spellcheck="false" data-placeholder="Вставьте или введите текст..."></div>
+      <div id="editor" class="editor" contenteditable="true" spellcheck="false" data-placeholder="Paste or type text..."></div>
 
       <section class="stats">
-        <p>Символов: <strong id="charsCount">0</strong></p>
-        <p>Без пробелов: <strong id="charsNoSpaceCount">0</strong></p>
-        <p>Слов: <strong id="wordsCount">0</strong></p>
+        <p>Characters: <strong id="charsCount">0</strong></p>
+        <p>No spaces: <strong id="charsNoSpaceCount">0</strong></p>
+        <p>Words: <strong id="wordsCount">0</strong></p>
       </section>
 
-      <section class="social-scale" aria-label="Шкала лимитов соцсетей">
+      <section class="social-scale" aria-label="Social media limits scale">
         <div class="social-head">
-          <h2>Лимиты соцсетей</h2>
+          <h2>Social media limits</h2>
           <span id="socialCurrent">0</span>
         </div>
         <div class="social-icons">
