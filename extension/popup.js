@@ -12,8 +12,13 @@ const socialThumb = document.getElementById('socialThumb');
 
 const SOCIAL_MAX = 440;
 
-const escapeHtml = (value) =>
-  value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+const sanitizeHtml = (value) =>
+  value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 
 const parseLimit = (input) => {
   const n = Number.parseInt(input.value, 10);
@@ -42,8 +47,10 @@ const updateSocialScale = (chars) => {
   socialCurrent.textContent = `${chars}/${SOCIAL_MAX}`;
 };
 
+const getEditorText = () => editor.textContent.replace(/\r/g, '');
+
 const render = () => {
-  const text = editor.innerText.replace(/\r/g, '');
+  const text = getEditorText();
   const limits = { chars: parseLimit(charLimitInput), words: parseLimit(wordLimitInput) };
 
   const stats = calcStats(text);
@@ -66,10 +73,11 @@ const render = () => {
     return;
   }
 
-  editor.innerHTML = `${escapeHtml(allowed)}<span class="excess">${escapeHtml(excess)}</span>`;
+  editor.innerHTML = `${sanitizeHtml(allowed)}<span class="excess">${sanitizeHtml(excess)}</span>`;
 };
 
 editor.addEventListener('input', render);
+editor.addEventListener('paste', () => setTimeout(render, 0));
 charLimitInput.addEventListener('input', render);
 wordLimitInput.addEventListener('input', render);
 

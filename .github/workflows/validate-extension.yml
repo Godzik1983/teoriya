@@ -1,0 +1,35 @@
+name: Validate Extension
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate manifest.json
+        run: |
+          node -e "const fs = require('fs'); JSON.parse(fs.readFileSync('extension/manifest.json', 'utf8')); console.log('manifest.json is valid');"
+
+      - name: Check popup script syntax
+        run: node --check extension/popup.js
+
+      - name: Validate HTML syntax
+        run: |
+          python3 - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+
+          html = Path('extension/popup.html').read_text(encoding='utf8')
+          class Validator(HTMLParser):
+              def error(self, message):
+                  raise ValueError(message)
+
+          Validator().feed(html)
+          print('popup.html is valid')
+          PY
