@@ -1,6 +1,8 @@
 const editor = document.getElementById('editor');
 const charLimitInput = document.getElementById('charLimit');
 const wordLimitInput = document.getElementById('wordLimit');
+const pasteBtn = document.getElementById('pasteBtn');
+const clearBtn = document.getElementById('clearBtn');
 
 const charsCount = document.getElementById('charsCount');
 const charsNoSpaceCount = document.getElementById('charsNoSpaceCount');
@@ -11,6 +13,7 @@ const socialProgress = document.getElementById('socialProgress');
 const socialThumb = document.getElementById('socialThumb');
 
 const SOCIAL_MAX = 440;
+const STORAGE_KEY = 'selectedTextForCounter';
 
 const sanitizeHtml = (value) =>
   value
@@ -81,4 +84,32 @@ editor.addEventListener('paste', () => setTimeout(render, 0));
 charLimitInput.addEventListener('input', render);
 wordLimitInput.addEventListener('input', render);
 
-render();
+const loadSelectedTextFromContextMenu = async () => {
+  const data = await chrome.storage.local.get(STORAGE_KEY);
+  const incomingText = data[STORAGE_KEY];
+  if (!incomingText) return;
+
+  editor.textContent = incomingText;
+  await chrome.storage.local.remove(STORAGE_KEY);
+  await chrome.action.setBadgeText({ text: '' });
+  render();
+};
+
+loadSelectedTextFromContextMenu();
+
+clearBtn.addEventListener('click', () => {
+  editor.textContent = '';
+  render();
+});
+
+pasteBtn.addEventListener('click', async () => {
+  try {
+    const clipText = await navigator.clipboard.readText();
+    if (clipText) {
+      editor.textContent = clipText;
+      render();
+    }
+  } catch (error) {
+    console.warn('Clipboard not available:', error);
+  }
+});
