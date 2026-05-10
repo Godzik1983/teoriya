@@ -1,0 +1,35 @@
+:root {
+  color-scheme: light;
+  --bg: #ffffff;
+  --fg: #1d1d1f;
+  --muted: #777;
+  --border: #d7d7d7;
+  --danger: #d70022;
+  --accent: #0f9d58;
+  --bar-bg: #d7dbe2;
+}
+
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: Arial, Helvetica, sans-serif; }
+.app { width: 460px; padding: 14px; box-sizing: border-box; }
+h1 { margin: 0 0 10px; font-size: 20px; }
+.limits { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+label { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: var(--muted); }
+input { padding: 7px 8px; border: 1px solid var(--border); border-radius: 6px; font-size: 14px; }
+.editor { min-height: 170px; max-height: 250px; overflow: auto; border: 1px solid var(--border); border-radius: 8px; padding: 10px; line-height: 1.45; white-space: pre-wrap; outline: none; }
+.editor:empty::before { content: attr(data-placeholder); color: #999; }
+.excess { color: var(--danger); }
+.stats { margin-top: 12px; border-radius: 8px; background: #303030; color: #fff; padding: 8px 10px; font-size: 18px; }
+.stats p { margin: 4px 0; }
+
+.social-scale { margin-top: 12px; border: 1px solid var(--border); border-radius: 10px; padding: 10px; }
+.social-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.social-head h2 { margin: 0; font-size: 14px; }
+#socialCurrent { font-size: 14px; font-weight: 700; color: #23395d; }
+.social-icons { position: relative; height: 54px; }
+.social-item { position: absolute; left: var(--pos); transform: translateX(-50%); text-align: center; }
+.social-icon { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--border); display: grid; place-items: center; background: #fff; font-size: 13px; font-weight: 700; color: #213a63; margin: 0 auto; }
+.social-limit { display: block; margin-top: 6px; font-size: 12px; color: #213a63; }
+.bar-wrap { position: relative; margin-top: 2px; height: 12px; }
+.social-track { position: absolute; inset: 3px 0 auto; height: 6px; border-radius: 999px; background: var(--bar-bg); }
+.social-progress { position: absolute; inset: 3px auto auto 0; width: 0; height: 6px; border-radius: 999px; background: var(--accent); transition: width 0.15s linear; }
+.social-thumb { position: absolute; top: 0; left: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); transform: translateX(-50%); transition: left 0.15s linear; }
