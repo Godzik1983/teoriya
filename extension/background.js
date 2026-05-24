@@ -9,17 +9,26 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 });
 
-chrome.contextMenus.onClicked.addListener(async (info) => {
+chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   if (info.menuItemId !== MENU_ID) return;
 
   const selectionText = info.selectionText || '';
   await chrome.storage.local.set({ [STORAGE_KEY]: selectionText });
+  if (!tab?.id) return;
 
-  await chrome.windows.create({
-    url: chrome.runtime.getURL('popup.html'),
-    type: 'popup',
-    width: 520,
-    height: 760,
-    focused: true
-  });
+  try {
+    await chrome.sidePanel.setOptions({
+      tabId: tab.id,
+      path: 'sidepanel.html',
+      enabled: true
+    });
+    await chrome.sidePanel.open({ tabId: tab.id });
+  } catch (error) {
+    console.warn('Side panel open failed, fallback to popup:', error);
+    try {
+      await chrome.action.openPopup();
+    } catch (popupError) {
+      console.error('Popup fallback failed:', popupError);
+    }
+  }
 });

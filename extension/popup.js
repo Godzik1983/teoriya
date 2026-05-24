@@ -12,7 +12,7 @@ const socialCurrent = document.getElementById('socialCurrent');
 const socialProgress = document.getElementById('socialProgress');
 const socialThumb = document.getElementById('socialThumb');
 
-const SOCIAL_MAX = 440;
+const SOCIAL_MAX = 320;
 const STORAGE_KEY = 'selectedTextForCounter';
 
 const sanitizeHtml = (value) =>

@@ -13,6 +13,7 @@
 
 body {
   margin: 0;
+  width: 460px;
   min-height: 100vh;
   background: radial-gradient(circle at 15% 0%, #fbd2e7 0%, transparent 30%), linear-gradient(135deg, var(--bg1), var(--bg2));
   color: var(--fg);
@@ -92,12 +93,14 @@ button:hover { filter: brightness(1.04); }
 #socialCurrent { font-size: 14px; font-weight: 700; color: #3a2d55; }
 .social-icons { position: relative; height: 54px; }
 .social-item { position: absolute; left: var(--pos); transform: translateX(-50%); text-align: center; }
-.social-icon { width: 30px; height: 30px; border-radius: 50%; border: 1px solid #e7e1ef; display: grid; place-items: center; background: #fff; font-size: 13px; font-weight: 700; color: #3a2d55; margin: 0 auto; }
+.social-icon { width: 24px; height: 24px; border-radius: 50%; border: 1px solid #e7e1ef; display: grid; place-items: center; background: #fff; font-size: 11px; font-weight: 700; color: #3a2d55; margin: 0 auto; line-height: 1; }
+.social-icon svg { width: 14px; height: 14px; fill: currentColor; }
 .social-limit { display: block; margin-top: 6px; font-size: 12px; color: #3a2d55; }
 .bar-wrap { position: relative; margin-top: 2px; height: 12px; }
 .social-track { position: absolute; inset: 3px 0 auto; height: 6px; border-radius: 999px; background: var(--bar-bg); }
 .social-progress { position: absolute; inset: 3px auto auto 0; width: 0; height: 6px; border-radius: 999px; background: linear-gradient(90deg, var(--accent), var(--accent2)); transition: width 0.15s linear; }
 .social-thumb { position: absolute; top: 0; left: 0; width: 12px; height: 12px; border-radius: 50%; background: #fff; border: 2px solid var(--accent); transform: translateX(-50%); transition: left 0.15s linear; }
 
-.sidepanel .app { width: 100%; }
+.sidepanel { width: auto; }
+.sidepanel .app { width: 100%; max-width: none; margin-left: 0; }
 
