@@ -4,7 +4,7 @@ const STORAGE_KEY = 'selectedTextForCounter';
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: MENU_ID,
-    title: 'Count selected text in Text Counter',
+    title: 'Count Characters',
     contexts: ['selection']
   });
 });

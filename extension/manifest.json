@@ -1,8 +1,16 @@
 {
   "manifest_version": 3,
-  "name": "Text Counter & Limits",
+  "name": "Count Characters",
   "description": "Counts characters, non-space characters, and words. Highlights text exceeding limits.",
   "version": "1.1.0",
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "64": "icons/64.png",
+    "96": "icons/96.png",
+    "128": "icons/128.png"
+  },
   "permissions": [
     "clipboardRead",
     "contextMenus",
@@ -13,8 +21,13 @@
     "service_worker": "background.js"
   },
   "action": {
-    "default_title": "Text Counter",
-    "default_popup": "popup.html"
+    "default_title": "Count Characters",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/16.png",
+      "32": "icons/32.png",
+      "48": "icons/48.png"
+    }
   },
   "side_panel": {
     "default_path": "sidepanel.html"

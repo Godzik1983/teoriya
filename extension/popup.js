@@ -51,10 +51,17 @@ const updateSocialScale = (chars) => {
 };
 
 const getEditorText = () => editor.textContent.replace(/\r/g, '');
+const resetLimits = () => {
+  charLimitInput.value = '';
+  wordLimitInput.value = '';
+};
 
 const render = () => {
   const text = getEditorText();
-  const limits = { chars: parseLimit(charLimitInput), words: parseLimit(wordLimitInput) };
+  const limits = {
+    chars: parseLimit(charLimitInput),
+    words: parseLimit(wordLimitInput)
+  };
 
   const stats = calcStats(text);
   charsCount.textContent = String(stats.chars);
@@ -98,11 +105,13 @@ const loadSelectedTextFromContextMenu = async () => {
 loadSelectedTextFromContextMenu();
 
 clearBtn.addEventListener('click', () => {
+  resetLimits();
   editor.textContent = '';
   render();
 });
 
 pasteBtn.addEventListener('click', async () => {
+  resetLimits();
   let clipText = '';
 
   try {

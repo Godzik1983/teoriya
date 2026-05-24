@@ -3,14 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Text Counter</title>
+    <title>Count Characters</title>
     <link rel="stylesheet" href="popup.css" />
   </head>
   <body>
     <main class="app glass">
       <header class="topbar">
-        <h1>Text Counter</h1>
-        <span class="badge">MV3</span>
+        <h1><img src="icons/64.png" alt="" class="title-icon" />Count Characters</h1>
+        <div class="topbar-actions">
+          <button id="pasteBtn" type="button">Paste</button>
+          <button id="clearBtn" type="button" class="ghost">Clear</button>
+        </div>
       </header>
 
       <div class="limits">
@@ -22,11 +25,6 @@
           Word limit
           <input id="wordLimit" type="number" min="0" placeholder="No limit" />
         </label>
-      </div>
-
-      <div class="actions">
-        <button id="pasteBtn" type="button">Paste</button>
-        <button id="clearBtn" type="button" class="ghost">Clear</button>
       </div>
 
       <div id="editor" class="editor" contenteditable="true" spellcheck="false" data-placeholder="Paste or type text..."></div>
