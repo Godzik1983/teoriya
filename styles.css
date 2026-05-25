@@ -88,7 +88,6 @@ h1 {
   background: #fff;
   box-shadow: 0 8px 24px rgba(15, 28, 61, 0.08);
   overflow: hidden;
-  position: relative;
 }
 
 .browser-reference > img {
@@ -96,26 +95,6 @@ h1 {
   width: 100%;
   height: auto;
   object-fit: contain;
-}
-
-.icon-replace {
-  position: absolute;
-  z-index: 2;
-  border-radius: 6px;
-}
-
-/* Puzzle icon in top-right circle */
-.icon-replace.top {
-  width: clamp(14px, 1.8vw, 28px);
-  left: 84.15%;
-  top: 10.9%;
-}
-
-/* Calculator icon in extensions list row */
-.icon-replace.list {
-  width: clamp(15px, 1.9vw, 30px);
-  left: 45.15%;
-  top: 68.35%;
 }
 
 @media (max-width: 760px) {
