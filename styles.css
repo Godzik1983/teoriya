@@ -88,6 +88,7 @@ h1 {
   background: #fff;
   box-shadow: 0 8px 24px rgba(15, 28, 61, 0.08);
   overflow: hidden;
+  position: relative;
 }
 
 .browser-reference > img {
@@ -95,6 +96,46 @@ h1 {
   width: 100%;
   height: auto;
   object-fit: contain;
+}
+
+.brand-fix {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 8px;
+  padding: 4px 7px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.brand-fix img {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  flex: 0 0 auto;
+}
+
+.brand-fix span {
+  white-space: nowrap;
+}
+
+/* Browser tab title replacement */
+.brand-fix.top {
+  left: 24.2%;
+  top: 3.2%;
+  background: #34415a;
+  color: #e7eefc;
+  font-size: clamp(8px, 0.95vw, 15px);
+}
+
+/* Extensions popup row replacement */
+.brand-fix.menu {
+  left: 57.1%;
+  top: 63.2%;
+  background: #111a27;
+  color: #ffffff;
+  font-size: clamp(8px, 0.9vw, 14px);
 }
 
 @media (max-width: 760px) {
