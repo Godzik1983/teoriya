@@ -19,7 +19,7 @@ body {
 a { color: inherit; text-decoration: none; }
 
 .page {
-  width: min(1120px, calc(100% - 28px));
+  width: min(1280px, calc(100% - 24px));
   margin: 0 auto;
   padding: 22px 0 56px;
   transform: translateX(44px);
@@ -71,7 +71,7 @@ h1 {
 
 .step {
   margin: 0 auto 28px;
-  max-width: 1160px;
+  max-width: 1240px;
 }
 
 .step h2 {
@@ -85,28 +85,21 @@ h1 {
   margin: 0;
   border: 1px solid var(--line);
   border-radius: 12px;
-  overflow: hidden;
   background: #fff;
   box-shadow: 0 8px 24px rgba(15, 28, 61, 0.08);
+  overflow: visible;
 }
 
 .browser-reference img {
   display: block;
   width: 100%;
   height: auto;
-}
-
-.browser-reference::after {
-  content: "";
-  display: block;
-  height: 22px;
-  border-top: 1px solid var(--line);
-  background: linear-gradient(180deg, #f8fbff 0%, #eef3fb 100%);
+  object-fit: contain;
 }
 
 @media (max-width: 760px) {
   .page {
-    width: min(1120px, calc(100% - 24px));
+    width: min(1280px, calc(100% - 16px));
     transform: none;
   }
 
