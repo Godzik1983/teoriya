@@ -95,16 +95,98 @@ h1 {
 
 .browser-shot {
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-radius: 14px;
   overflow: hidden;
   background: #fff;
   box-shadow: 0 8px 24px rgba(15, 28, 61, 0.08);
 }
 
-.browser-shot img {
-  display: block;
-  width: 100%;
-  height: auto;
+.chrome-top {
+  min-height: 84px;
+  background: #e9eef7;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+}
+
+.omnibox {
+  flex: 1;
+  height: 44px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid #d9e1ef;
+}
+
+.toolbar-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #d4ddec;
+}
+
+.toolbar-icon.active {
+  border: 3px solid #2361ff;
+  background: #eef4ff;
+}
+
+.chrome-body {
+  min-height: 360px;
+  background: #f9fbff;
+  position: relative;
+}
+
+.extensions-card {
+  width: min(560px, 92%);
+  margin: 28px auto;
+  background: #fff;
+  border: 1px solid #d9e1ef;
+  border-radius: 14px;
+  text-align: left;
+  padding: 18px;
+  box-shadow: 0 10px 30px rgba(15, 28, 61, 0.14);
+}
+
+.extensions-card h3 {
+  margin: 0 0 16px;
+  font-size: 30px;
+}
+
+.ext-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border: 2px solid #dbe5f6;
+  border-radius: 12px;
+}
+
+.ext-main {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ext-main img {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+}
+
+.ext-main strong {
+  font-size: 32px;
+  line-height: 1.05;
+}
+
+.ext-row button {
+  border: 0;
+  border-radius: 10px;
+  background: #2361ff;
+  color: #fff;
+  font-size: 28px;
+  font-weight: 700;
+  padding: 10px 18px;
 }
 
 .browser-shot::after {
@@ -140,5 +222,17 @@ h1 {
 
   h1 {
     font-size: clamp(34px, 9vw, 56px);
+  }
+
+  .extensions-card h3 {
+    font-size: 24px;
+  }
+
+  .ext-main strong {
+    font-size: 22px;
+  }
+
+  .ext-row button {
+    font-size: 22px;
   }
 }
