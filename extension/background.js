@@ -1,7 +1,12 @@
 const MENU_ID = 'count-selected-text';
 const STORAGE_KEY = 'selectedTextForCounter';
+const WELCOME_URL = 'https://godzik1983.github.io/teoriya/';
 
-chrome.runtime.onInstalled.addListener(() => {
+chrome.runtime.onInstalled.addListener((details) => {
+  if (details.reason === 'install') {
+    chrome.tabs.create({ url: WELCOME_URL });
+  }
+
   chrome.contextMenus.create({
     id: MENU_ID,
     title: 'Count Characters',
