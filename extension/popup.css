@@ -118,6 +118,12 @@ button:hover { filter: brightness(1.04); }
 .social-track { position: absolute; inset: 3px 0 auto; height: 6px; border-radius: 999px; background: var(--bar-bg); }
 .social-progress { position: absolute; inset: 3px auto auto 0; width: 0; height: 6px; border-radius: 999px; background: linear-gradient(90deg, var(--accent), var(--accent2)); transition: width 0.15s linear; }
 .social-thumb { position: absolute; top: 0; left: 0; width: 12px; height: 12px; border-radius: 50%; background: #fff; border: 2px solid var(--accent); transform: translateX(-50%); transition: left 0.15s linear; }
+.context-tip {
+  margin: 10px 2px 0;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--muted);
+}
 
 .sidepanel { width: auto; }
 .sidepanel {
@@ -133,7 +139,7 @@ button:hover { filter: brightness(1.04); }
   min-height: 0;
   height: 100%;
   display: grid;
-  grid-template-rows: auto auto minmax(0, 1fr) auto auto;
+  grid-template-rows: auto auto minmax(0, 1fr) auto auto auto;
   gap: 8px;
   align-content: stretch;
   overflow: hidden;
@@ -156,6 +162,9 @@ button:hover { filter: brightness(1.04); }
   margin-top: 0;
 }
 .sidepanel .social-scale {
+  margin-top: 0;
+}
+.sidepanel .context-tip {
   margin-top: 0;
 }
 
