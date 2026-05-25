@@ -27,6 +27,7 @@ a {
   width: min(1120px, calc(100% - 28px));
   margin: 0 auto;
   padding: 22px 0 56px;
+  transform: translateX(44px);
 }
 
 .top {
@@ -92,16 +93,34 @@ h1 {
   font-weight: 700;
 }
 
-.step img {
+.browser-shot {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(15, 28, 61, 0.08);
+}
+
+.browser-shot img {
   display: block;
   width: 100%;
   height: auto;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: #fff;
+}
+
+.browser-shot::after {
+  content: "";
+  display: block;
+  height: 24px;
+  border-top: 1px solid var(--line);
+  background: linear-gradient(180deg, #f8fbff 0%, #eef3fb 100%);
 }
 
 @media (max-width: 760px) {
+  .page {
+    width: min(1120px, calc(100% - 24px));
+    transform: none;
+  }
+
   .brand {
     font-size: 24px;
   }
